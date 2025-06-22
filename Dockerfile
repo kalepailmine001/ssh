@@ -1,10 +1,4 @@
-FROM php:cli
-
-# Install dependencies
-RUN apt-get update && \
-    apt-get install -y tmate openssh-client && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Default command starts a tmate session
-CMD ["tmate", "-F"]
+# Use Windows Server Core as the base image
+FROM debian
+RUN apt update && apt install tmate -y
+RUN tmate -F
