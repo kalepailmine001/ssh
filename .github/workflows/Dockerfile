@@ -1,4 +1,4 @@
-FROM php:cli
+FROM debian:stable-slim
 
 # Install dependencies
 RUN apt-get update && \
