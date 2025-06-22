@@ -2,7 +2,7 @@ name: CI
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      - run: sudo apt update && sudo apt install wget curl git tmate -y
+      - run: brew install tmate
       - run: tmate -F
