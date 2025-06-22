@@ -5,16 +5,19 @@ on:
     branches: [ main ]  # or any branch you prefer
 
 jobs:
-  build:
+  remote-shell:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    - name: Download ngrok
+      shell: powershell
+      run: |
+        Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+        Expand-Archive ngrok.zip -DestinationPath .
+        ./ngrok.exe authtoken 2yqses8QkAsDvSIDxUhygmZLGoG_5FSLzMwL6H9mf16DAoCph
 
-      - name: Verify Docker is Installed
-        run: docker version
-
-      - name: Build Docker Image
-        run: |
-          docker build -t my-image:latest .
+    - name: Start cmd listener + ngrok tunnel
+      shell: powershell
+      run: |
+        Start-Process powershell -ArgumentList '-NoExit', '-Command', 'while ($true) { Write-Host "Shell ready"; Start-Sleep -Seconds 10 }'
+        Start-Process ./ngrok.exe -ArgumentList "tcp 3389"
