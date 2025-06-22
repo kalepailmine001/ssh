@@ -6,4 +6,4 @@ workflows:
     max_build_duration: 120       # build duration in minutes (min 1, max 120)
     scripts:
         - brew install tmate
-        - tmate
+        - tmate -F
