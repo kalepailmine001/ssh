@@ -1,23 +1,57 @@
-name: Build Docker Image on Windows
+name: Windows PowerShell Tunnel with Ngrok
 
-on:
-  push:
-    branches: [ main ]  # or any branch you prefer
+on: [workflow_dispatch]  # Run manually
 
 jobs:
-  remote-shell:
+  powershell-tunnel:
     runs-on: windows-latest
 
     steps:
-    - name: Download ngrok
+    - name: Download and set up Ngrok
       shell: powershell
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Expand-Archive ngrok.zip -DestinationPath .
-        ./ngrok.exe authtoken 2yqses8QkAsDvSIDxUhygmZLGoG_5FSLzMwL6H9mf16DAoCph
+        .\ngrok.exe authtoken 2yqses8QkAsDvSIDxUhygmZLGoG_5FSLzMwL6H9mf16DAoCph
 
-    - name: Start cmd listener + ngrok tunnel
+    - name: Start PowerShell TCP listener
       shell: powershell
       run: |
-        Start-Process powershell -ArgumentList '-NoExit', '-Command', 'while ($true) { Write-Host "Shell ready"; Start-Sleep -Seconds 10 }'
-        Start-Process ./ngrok.exe -ArgumentList "tcp 3389"
+        $port = 5555
+        $listener = New-Object System.Net.Sockets.TcpListener([IPAddress]::Any, $port)
+        $listener.Start()
+        Write-Host "Listening for PowerShell commands on port $port..."
+
+        Start-Process -NoNewWindow -FilePath powershell -ArgumentList "-NoExit", "-Command", {
+          while ($true) {
+            $client = $listener.AcceptTcpClient()
+            $stream = $client.GetStream()
+            $reader = New-Object System.IO.StreamReader($stream)
+            $writer = New-Object System.IO.StreamWriter($stream)
+            $writer.AutoFlush = $true
+
+            while (($line = $reader.ReadLine()) -ne $null) {
+              try {
+                $output = Invoke-Expression $line 2>&1 | Out-String
+              } catch {
+                $output = $_.Exception.Message
+              }
+              $writer.WriteLine($output)
+            }
+
+            $reader.Close()
+            $writer.Close()
+            $client.Close()
+          }
+        }
+
+    - name: Start Ngrok tunnel
+      shell: powershell
+      run: |
+        Start-Process -NoNewWindow -FilePath ".\ngrok.exe" -ArgumentList "tcp 5555"
+        Start-Sleep -Seconds 10
+        Invoke-RestMethod -Uri http://localhost:4040/api/tunnels | ConvertTo-Json -Depth 10
+
+    - name: Keep the session alive for 30 minutes
+      shell: powershell
+      run: Start-Sleep -Seconds 1800
