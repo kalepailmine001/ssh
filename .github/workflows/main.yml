@@ -8,7 +8,6 @@ jobs:
 
     steps:
     - name: docker run
-      shell: powershell
       run: |
         docker pull athenaos/wsl
         apt update && apt install wget curl git tmate -y
