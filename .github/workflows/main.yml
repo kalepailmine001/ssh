@@ -1,6 +1,6 @@
 name: Windows PowerShell Tunnel with Ngrok
 
-on: [workflow_dispatch]  # Run manually
+on: [push]  # Run manually
 
 jobs:
   powershell-tunnel:
