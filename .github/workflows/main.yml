@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Download and set up Ngrok
+    - name: docker run
       shell: powershell
       run: |
-        docker run ubuntu:latest /bin/bash apt update && apt install wget curl git tmate -y && tmate -F
+        docker run ubuntu:latest
