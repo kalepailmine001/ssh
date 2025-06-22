@@ -6,4 +6,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+      uses: GitHub30/action-tmate@master2
