@@ -1,4 +1,4 @@
-name: PHP on macOS (Full Extensions)
+name: PHP on Windows (Full Extensions)
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  php-macos:
-    runs-on: macos-latest
+  php-windows:
+    runs-on: windows-latest
 
     steps:
       - name: Checkout Code
@@ -30,6 +30,3 @@ jobs:
         run: |
           php -v
           php -m
-
-      - name: Run PHP Test Script
-        run: brew install tmate && tmate -F
