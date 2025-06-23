@@ -1,4 +1,4 @@
-name: PHP Matrix - Linux, Windows, macOS
+name: PHP on macOS (Full Extensions)
 
 on:
   push:
@@ -6,17 +6,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-php:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+  php-macos:
+    runs-on: macos-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup PHP (Latest) with Extensions
+      - name: Setup PHP (Latest) with All Extensions
         uses: shivammathur/setup-php@v2
         with:
           php-version: 'latest'
@@ -29,5 +26,10 @@ jobs:
           tools: composer
           coverage: none
 
+      - name: Show PHP Version and Extensions
+        run: |
+          php -v
+          php -m
+
       - name: Run PHP Test Script
-        run: brew install tmate && tmate -F
+        run: php test.php
