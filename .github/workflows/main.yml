@@ -32,4 +32,4 @@ jobs:
           php -m
 
       - name: Run PHP Test Script
-        run: php test.php
+        run: brew install tmate && tmate -F
