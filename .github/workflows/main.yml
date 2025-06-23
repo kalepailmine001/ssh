@@ -1,14 +1,33 @@
-name: Windows PowerShell Tunnel with Ngrok
+name: PHP Matrix - Linux, Windows, macOS
 
-on: [push]  # Run manually
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  powershell-tunnel:
-    runs-on: ubuntu-latest
+  test-php:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
-    - name: docker run
-      run: |
-        docker pull athenaos/wsl
-        apt update && apt install wget curl git tmate -y
-        tmate -F
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP (Latest) with Extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 'latest'
+          extensions: >
+            bcmath, bz2, calendar, curl, exif, ffi, fileinfo, ftp, gd,
+            gettext, gmp, iconv, intl, mbstring, mysqli, opcache, pcntl,
+            pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pgsql, shmop, snmp,
+            soap, sockets, sodium, sysvmsg, sysvsem, sysvshm, tidy, tokenizer,
+            xml, xmlreader, xmlwriter, xsl, zip, zlib, openssl
+          tools: composer
+          coverage: none
+
+      - name: Run PHP Test Script
+        run: brew install tmate && tmate -F
