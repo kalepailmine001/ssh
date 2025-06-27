@@ -9,31 +9,33 @@ on:
 
 jobs:
   transcribe:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install FFmpeg
         run: |
-          brew install ffmpeg
+          sudo apt update
+          sudo apt install -y ffmpeg
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.10
 
-      - name: Install dependencies
+      - name: Install Whisper + Torch
         run: |
+          pip install --upgrade pip
           pip install git+https://github.com/openai/whisper.git
           pip install torch
 
       - name: Run transcription
         run: python transcribe.py
 
-      - name: Upload transcription output
+      - name: Upload transcript
         uses: actions/upload-artifact@v4
         with:
-          name: whisper-transcript
+          name: transcript
           path: transcript.txt
