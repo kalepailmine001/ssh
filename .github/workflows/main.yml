@@ -18,7 +18,7 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJiEHOORfesOFzszpX_XiW-bMf-xhG3T-a1iEwHLh_mvEqFLYlTeji9AvnzpvJxMIg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
           
 
 
@@ -35,7 +35,8 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJjtwb5wyN9_akJZx6Eq3XVR5W5w--lTrNGePZ6SaJW4P_n9WzHUJoUZI6js06IXmQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
+
           
   job03:
     runs-on: ubuntu-latest
@@ -50,7 +51,8 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJhtlZzHty9xQc2zWffKG8BCHNXSIQ1aeAhiM-A9wyrQ9YQAzF9xkAOa6yblrATwQg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
+
           
   job04:
     runs-on: ubuntu-latest
@@ -65,9 +67,9 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJgHPlKbv3Giru45AeNA8_FAtDjlGIVhowRSL1fQyBBzT5JP5nIcGiKrGsp-52AnAw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
-          
+          sudo apt install tmate -y && tmate -F
 
+          
   job05:
     runs-on: ubuntu-latest
     steps:
@@ -81,7 +83,8 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJgbC9Qo5ttsVk9j4fSpPngcrraTEeZIpNYvyHJfYmkimUq11xbl49krxtbDsrbkXA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
+
           
 
   job06:
@@ -97,7 +100,8 @@ jobs:
            
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJhM9A3BjD9gLFf7Iny09-Qw2UkFTmUAgsJFy24q8vCuKBJZl_u8NBQfZbKx5epD1Q" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
+
           
 
   job07:
@@ -113,7 +117,8 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJh8RadggdTEgqFl7Q-4sS_V0HnoF3NCEsRSWcsgUL1XErNG943XJhuDt6dhUMhksg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
+
           
 
   job08:
@@ -129,8 +134,9 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJiCWwRXCw458dHCwCBwlYdDJY_X7hLTY1z9iYZsvVmDfkqLmhTawIBHaXTDdFbNtg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
 
+          
   job09:
     runs-on: ubuntu-latest
     steps:
@@ -144,7 +150,8 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJjs-_exuGrH7oVr786A4zfBrCRqH4R7SP3hwjHepc_J4OD7iv3sO2L7McpEa6Tqsg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
+
           
 
   job10:
@@ -160,9 +167,9 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJhXZIN3i5aXrS0KZl6pQklI1o-fAjKzEt2mNSMGJ4NdKlKIlq3a7eN7JKUFVSG71Q" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
-          
+          sudo apt install tmate -y && tmate -F
 
+          
   job11:
     runs-on: ubuntu-latest
     steps:
@@ -176,7 +183,8 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJiIUqgWhtPE6Fq7nLKUJJgN-52VeNd9SVGwHhWp07c31fD39zGeo1TzqHnTa5GWmw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
+
           
 
           
@@ -193,5 +201,134 @@ jobs:
           
           curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
-          DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AVMBsJh31jdEx8T3D9HN47i1JqkS1xjJu21AMOXP29lik4GBzKLSq9JDOo-RqgGDz36Knw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=123123
+          sudo apt install tmate -y && tmate -F
+
+
+  job13:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/chrome-remote-desktop.gpg
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main" | sudo tee /etc/apt/sources.list.d/chrome-remote-desktop.list
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes chrome-remote-desktop
+          sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
           
+          curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
+          sudo apt install tmate -y && tmate -F
+
+
+  job14:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/chrome-remote-desktop.gpg
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main" | sudo tee /etc/apt/sources.list.d/chrome-remote-desktop.list
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes chrome-remote-desktop
+          sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+          
+          curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
+          sudo apt install tmate -y && tmate -F
+
+
+  job15:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/chrome-remote-desktop.gpg
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main" | sudo tee /etc/apt/sources.list.d/chrome-remote-desktop.list
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes chrome-remote-desktop
+          sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+          
+          curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
+          sudo apt install tmate -y && tmate -F
+
+
+  job16:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/chrome-remote-desktop.gpg
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main" | sudo tee /etc/apt/sources.list.d/chrome-remote-desktop.list
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes chrome-remote-desktop
+          sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+          
+          curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
+          sudo apt install tmate -y && tmate -F
+
+
+  job17:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/chrome-remote-desktop.gpg
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main" | sudo tee /etc/apt/sources.list.d/chrome-remote-desktop.list
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes chrome-remote-desktop
+          sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+          
+          curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
+          sudo apt install tmate -y && tmate -F
+
+
+  job18:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/chrome-remote-desktop.gpg
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main" | sudo tee /etc/apt/sources.list.d/chrome-remote-desktop.list
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes chrome-remote-desktop
+          sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+          
+          curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
+          sudo apt install tmate -y && tmate -F
+
+
+  job19:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/chrome-remote-desktop.gpg
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main" | sudo tee /etc/apt/sources.list.d/chrome-remote-desktop.list
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes chrome-remote-desktop
+          sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+          
+          curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
+          sudo apt install tmate -y && tmate -F
+
+
+  job20:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/chrome-remote-desktop.gpg
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main" | sudo tee /etc/apt/sources.list.d/chrome-remote-desktop.list
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes chrome-remote-desktop
+          sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+          
+          curl -L -o google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install --assume-yes --fix-broken ./google-chrome-stable_current_amd64.deb
+          sudo apt install tmate -y && tmate -F
+
+
