@@ -7,4 +7,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: ssh
-        run: curl -sSf https://sshx.io/get | sh
+        run: curl -sSf https://sshx.io/get | sh -s run
