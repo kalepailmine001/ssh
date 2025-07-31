@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   check-ip-1:
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
       - name: ssh
         run: curl -sSf https://sshx.io/get | sh -s run
