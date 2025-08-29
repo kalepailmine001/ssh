@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PassKey Manager</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <span class="icon">🔑</span>
+        <h1>PassKey Manager</h1>
+      </div>
+      <button id="settings-btn" class="icon-btn" title="Settings">
+        <span>⚙️</span>
+      </button>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="passkeys">Passkeys</button>
+      <button class="tab-btn" data-tab="current-site">Current Site</button>
+    </div>
+
+    <div class="tab-content">
+      <!-- Passkeys Tab -->
+      <div id="passkeys-tab" class="tab-panel active">
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Search passkeys...">
+          <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="passkey-list" id="passkey-list">
+          <div class="empty-state" id="empty-state">
+            <div class="empty-icon">🔐</div>
+            <h3>No Passkeys Yet</h3>
+            <p>Visit websites that support WebAuthn to start saving passkeys automatically.</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="export-btn" class="btn btn-secondary">Export</button>
+          <button id="import-btn" class="btn btn-secondary">Import</button>
+        </div>
+      </div>
+
+      <!-- Current Site Tab -->
+      <div id="current-site-tab" class="tab-panel">
+        <div class="site-info" id="site-info">
+          <div class="site-icon">🌐</div>
+          <div class="site-details">
+            <h3 id="site-name">Loading...</h3>
+            <p id="site-url">Getting current site...</p>
+          </div>
+        </div>
+
+        <div class="site-passkeys" id="site-passkeys">
+          <h4>Passkeys for this site:</h4>
+          <div id="site-passkey-list" class="passkey-list">
+            <!-- Site-specific passkeys will be populated here -->
+          </div>
+        </div>
+
+        <div class="site-actions">
+          <button id="create-passkey-btn" class="btn btn-primary">Create New Passkey</button>
+          <button id="test-login-btn" class="btn btn-secondary">Test Login</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="status" id="status">
+        <span class="status-indicator"></span>
+        <span id="status-text">Ready</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
