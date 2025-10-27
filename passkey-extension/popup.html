@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Passkey Manager</title>
+  <style>
+    body { font-family: Arial, sans-serif; min-width: 250px; padding: 10px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 4px 0; padding: 4px; background: #f2f2f2; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; }
+    button { margin-left: 6px; }
+    #addBtn { margin-top: 10px; width: 100%; }
+    .small { font-size: 0.8em; color: #555; }
+  </style>
+</head>
+<body>
+  <h3>Stored Passkeys</h3>
+  <ul id="list"></ul>
+  <button id="addBtn">Create Passkey for This Site</button>
+  <script src="popup.js"></script>
+</body>
+</html>
